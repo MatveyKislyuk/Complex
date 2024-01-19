@@ -1,35 +1,40 @@
 #ifndef COMPLEX_H
 #define COMPLEX_H
 
+template<typename T>
 class Complex {
 private:
-    double real;
-    double imaginary;
+    T real;
+    T imaginary;
 
 public:
-    explicit Complex(double real = 0.0, double imag = 0.0);
+    explicit Complex(T real = 0.0, T imag = 0.0);
 
-    double getReal() const;
+    T getReal() const;
 
-    double getImaginary() const;
+    T getImaginary() const;
 
-    void setReal(double re);
+    void setReal(T re);
 
-    void setImaginary(double im);
+    void setImaginary(T im);
 
-    Complex operator+(const Complex &other) const;
+    Complex<T> operator+(const Complex<T> &other) const;
 
-    Complex operator-(const Complex &other) const;
+    Complex<T> operator-(const Complex<T> &other) const;
 
-    Complex operator*(const Complex &other) const;
+    Complex<T> operator*(const Complex<T> &other) const;
 
-    Complex operator/(const Complex &other) const;
+    Complex<T> operator/(const Complex<T> &other) const;
 
-    bool equals(const Complex &other) const;
+    bool operator==(const Complex<T> &other) const;
 
-    Complex power(int exponent) const;
+    bool operator==(int value) const;
 
-    double getModulus() const;
+    bool operator==(double value) const;
+
+    Complex<T> power(int exponent) const;
+
+    T getModulus() const;
 
     void display() const;
 };
